@@ -8,8 +8,8 @@ export default function App({}) {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/sign-up' component={SignUp} />
       </Switch>
     </BrowserRouter>
   )

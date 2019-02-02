@@ -1,6 +1,9 @@
 {
   "name": "learn-live",
   "private": true,
+  "scripts": {
+    "lint": "eslint \"app/javascript/**/*.{js,jsx}\" --fix"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "actioncable-modules": "^5.2.1-1",
@@ -12,6 +15,7 @@
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
+    "eslint-config-standard-jsx": "^6.0.2",
     "webpack-dev-server": "2.11.2"
   }
 }
