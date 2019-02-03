@@ -1,0 +1,20 @@
+.chat.container {
+  position: relative;
+}
+
+.chat .messages {
+  overflow-Y: scroll;
+  height: 300px;
+}
+
+.chat .messages .message.sender {
+  font-weight: bold;
+}
+
+.chat .messages .message.sender::after {
+  content: ':';
+}
+
+.chat .messages .message.body {
+  margin-left: 8px;
+}
