@@ -4,6 +4,7 @@ class CreateChatMessages < ActiveRecord::Migration[5.2]
       t.string :from
       t.string :to
       t.text :body
+      t.string :ip_address
 
       t.timestamps
     end

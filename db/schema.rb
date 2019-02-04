@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_143710) do
     t.string "from"
     t.string "to"
     t.text "body"
+    t.string "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

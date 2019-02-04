@@ -3,10 +3,10 @@ import {
   useEffect,
   useContext
 } from 'react'
-import CableContext from '../../app/cable-context'
+import CableContext from '../../../features/app/cable-context'
 
 
-export default function useGuestChat(participants) {
+export default function useChat(participants, ipAddress) {
   const {
     cable
   } = useContext(CableContext)
@@ -21,10 +21,9 @@ export default function useGuestChat(participants) {
       .then((json) => setMessages(json))
 
     setChannel(cable.subscriptions.create({
-      channel: 'GuestChatChannel'
+      channel: 'ChatChannel'
     }, {
       received: function (data) {
-        console.log(data)
         setMessages((messages) => ([...messages, JSON.parse(data)]))
       }
     }))
@@ -35,6 +34,7 @@ export default function useGuestChat(participants) {
       to: participants.split(',')[1],
       from: participants.split(',')[0],
       body: newMessage,
+      ipAddress
     })
     setNewMessage('')
   }

@@ -1,0 +1,20 @@
+.guest-chat.container {
+  position: relative;
+}
+
+.guest-chat .messages {
+  overflow-Y: scroll;
+  height: 300px;
+}
+
+.guest-chat .messages .message.sender {
+  font-weight: bold;
+}
+
+.guest-chat .messages .message.sender::after {
+  content: ':';
+}
+
+.guest-chat .messages .message.body {
+  margin-left: 8px;
+}

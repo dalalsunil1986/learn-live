@@ -1,39 +1,23 @@
-import React, { useEffect } from 'react'
-import useGuestChat from './hooks/use-guest-chat'
-import './styles.css'
+import React, { useState, useEffect } from 'react'
+import Cookies from 'universal-cookie'
+import ChatWindow from '../../components/chat-window'
 
-export default function GuestChat({ participants }) {
-  const {
-    messages,
-    setMessages,
-    newMessage,
-    setNewMessage,
-    handleNewMessageSubmit,
-  } = useGuestChat(participants)
-
+export default function GuestChat({}) {
+  const [ipAddress, setIpAddress] = useState('')
   useEffect(() => {
-    var list = document.getElementsByClassName('messages')[0]
-    list.scrollTop = list.scrollHeight
-  }, [messages])
+    const ip = document.getElementById('ipAddress').value
+    const cookies = new Cookies()
+    cookies.set('ipAddress', ip, {
+      path: '/',
+    })
+    setIpAddress(ip)
+  }, [])
 
   return (
-    <div className="chat container">
-      <ul className="messages">
-        {messages.map((message) => (
-          <li key={message.id}>
-            <span className="message sender">{message.from}</span>
-            <span className="message body">{message.body}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="input">
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-        />
-        <button onClick={handleNewMessageSubmit}>Send</button>
-      </div>
-    </div>
+    <ChatWindow
+      participants={`guest,reactu`}
+      ipAddress={ipAddress}
+      cssClass={`guest-chat`}
+    />
   )
 }
